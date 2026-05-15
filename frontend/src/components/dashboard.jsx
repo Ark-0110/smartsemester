@@ -48,6 +48,14 @@ function Dashboard() {
   if (!selectedCourse) {
     return;
   }
+  
+  const courseAlreadyAdded = courses.some(
+    (course) => course.code === selectedCourse.code
+  );
+  
+  if (courseAlreadyAdded) {
+    return;
+  }
 
   setCourses([...courses, selectedCourse]);
   setSelectedCourseCode("");
